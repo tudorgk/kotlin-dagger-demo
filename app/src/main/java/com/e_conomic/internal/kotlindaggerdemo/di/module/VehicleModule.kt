@@ -4,6 +4,7 @@ import com.e_conomic.internal.kotlindaggerdemo.model.Motor
 import com.e_conomic.internal.kotlindaggerdemo.model.Vehicle
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -14,9 +15,20 @@ class VehicleModule {
 
     @Provides
     @Singleton
-    fun provideMotor() : Motor = Motor()
+    @Named("V12")
+    fun provideV12() : Motor = Motor()
+
 
     @Provides
     @Singleton
-    fun provideVehicle() : Vehicle = Vehicle(motor = Motor())
+    @Named("V8")
+    fun provideV8() : Motor {
+        return Motor()
+    }
+
+
+
+    @Provides
+    @Singleton
+    fun provideVehicle() : Vehicle = Vehicle(motor = Motor(), motor2 = Motor())
 }

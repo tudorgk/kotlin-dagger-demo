@@ -24,6 +24,7 @@ android {
     }
 }
 
+//IMPORTANT! Must be set ti true to use Dagger 2
 kapt {
     generateStubs = true
 }

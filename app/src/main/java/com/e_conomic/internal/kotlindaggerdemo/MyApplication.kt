@@ -21,11 +21,15 @@ class MyApplication : Application() {
     @Inject
     lateinit var locationManager: LocationManager
 
+
     override fun onCreate(){
         super.onCreate()
 
+
         applicationComponentGraph = DaggerApplicationComponent.builder().applicationModule(ApplicationModule(this)).build()
-        applicationComponentGraph.inject(this)
+
+        //applicationComponentGraph.inject(this)
+        //locationManager = applicationComponentGraph.locationManger()
 
         Log.d("Location manager", locationManager.toString())
     }
